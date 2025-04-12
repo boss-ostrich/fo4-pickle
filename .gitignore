@@ -1,0 +1,16 @@
+/build
+*.obj
+*.lib
+*.exp
+*.dll
+*.pdb
+*.log
+*.suo
+*.vcxproj.*
+*.user
+*.aps
+*.ncb
+*.sdf
+*.ipch
+.DS_Store
+Thumbs.db
