@@ -1,5 +1,5 @@
 #include "flag_parser.h"
-#include "f4se/CommandTable.h"
+#include "f4se_shims/CommandTable.h"
 #include <sstream>
 
 namespace {

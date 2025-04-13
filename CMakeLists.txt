@@ -13,6 +13,7 @@ include_directories(${F4SE_PATH}/f4se_common)
 
 # Local includes
 include_directories(src)
+include_directories(${CMAKE_SOURCE_DIR}/src/f4se_shims)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -20,7 +21,9 @@ set(CMAKE_CXX_STANDARD 17)
 file(GLOB SOURCES src/*.cpp)
 
 # Build shared library (DLL)
-add_library(FalloutPickle SHARED ${SOURCES})
+add_library(FalloutPickle SHARED ${SOURCES}
+  src/f4se_shims/CommandTable.cpp
+)
 
 # Link against F4SE
 target_link_libraries(FalloutPickle
