@@ -7,10 +7,6 @@ include_directories(${CMAKE_SOURCE_DIR}/extern/json/single_include)
 # Declare F4SE path as a cache variable (ensures CMake propagates it)
 set(F4SE_PATH "C:/SDKs/F4SE" CACHE PATH "Path to F4SE dev kit")
 
-# F4SE includes
-include_directories(${F4SE_PATH}/f4se)
-include_directories(${F4SE_PATH}/f4se_common)
-
 # Local includes
 include_directories(src)
 include_directories(${CMAKE_SOURCE_DIR}/src/f4se_shims)
@@ -23,6 +19,10 @@ file(GLOB SOURCES src/*.cpp)
 # Build shared library (DLL)
 add_library(FalloutPickle SHARED ${SOURCES}
   src/f4se_shims/CommandTable.cpp
+)
+target_include_directories(FalloutPickle PRIVATE
+    ${F4SE_PATH}/f4se
+    ${F4SE_PATH}/f4se_common
 )
 
 # Link against F4SE
