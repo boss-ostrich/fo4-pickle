@@ -1,23 +1,34 @@
- cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.14)
 project(FalloutPickle)
+
+# JSON include
 include_directories(${CMAKE_SOURCE_DIR}/extern/json/single_include)
+
+# Declare F4SE path as a cache variable (ensures CMake propagates it)
+set(F4SE_PATH "C:/SDKs/F4SE" CACHE PATH "Path to F4SE dev kit")
+
+# F4SE includes
+include_directories(${F4SE_PATH}/f4se)
+include_directories(${F4SE_PATH}/f4se_common)
+
+# Local includes
+include_directories(src)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(
-    src
-    ${F4SE_PATH}/f4se
-)
-
+# Source files
 file(GLOB SOURCES src/*.cpp)
 
+# Build shared library (DLL)
 add_library(FalloutPickle SHARED ${SOURCES})
 
+# Link against F4SE
 target_link_libraries(FalloutPickle
     ${F4SE_PATH}/f4se/f4se_common.lib
     ${F4SE_PATH}/f4se/f4se.lib
 )
 
+# Output DLL to build folder
 set_target_properties(FalloutPickle PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
 )

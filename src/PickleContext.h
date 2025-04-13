@@ -23,6 +23,6 @@ LogBuffer verboseLog;
 
 void Init(const FlagParser::FlagSet& f);
 void Log(const std::string& msg);
-void SaveJson(const std::string& filename, const Json::Value& root);
+void SaveJson(const std::string& filename, const json& root);
 fs::path Path(const std::string& relative) const;
 };
