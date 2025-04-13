@@ -1,3 +1,4 @@
+#include <nlohmann/json.hpp>
 #include "export_manager.h"
 #include "f4se/ConsoleAPI.h"
 #include "flag_parser.h"

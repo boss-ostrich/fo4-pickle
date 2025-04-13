@@ -1,3 +1,4 @@
+#include <nlohmann/json.hpp>
 #include "unpickle_context.h"
 #include "util.h"
 

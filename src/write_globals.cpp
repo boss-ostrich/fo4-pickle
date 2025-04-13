@@ -1,3 +1,4 @@
+#include <nlohmann/json.hpp>
 #include "PickleContext.h"
 #include "f4se/GameForms.h"
 #include "f4se/GameData.h"

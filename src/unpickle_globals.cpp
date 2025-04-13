@@ -1,3 +1,4 @@
+#include <nlohmann/json.hpp>
 #include "unpickle_context.h"
 #include "f4se/GameForms.h"
 #include "f4se/GameRTTI.h"
